@@ -1,0 +1,6 @@
+services:
+  frontend_web_nginx:
+    image: <AWS_Account_ID>.dkr.ecr.us-east-2.amazonaws.com/test-custom-new:qa-v1.0.0
+    ports:
+      - 8004:80
+    restart: unless-stopped

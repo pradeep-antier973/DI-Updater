@@ -1,0 +1,6 @@
+services:
+  backend_web_nginx:
+    image: <AWS_Account_ID>.dkr.ecr.us-east-2.amazonaws.com/test-custom-new:2026-01-21-11-22-85
+    ports:
+      - 8005:80
+    restart: unless-stopped

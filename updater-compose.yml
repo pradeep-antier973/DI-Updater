@@ -1,0 +1,22 @@
+name: docker-image-updater
+services:
+  docker-image-updater:
+    image: piku143/docker-image-updater:rust-v3
+    container_name: docker-image-updater
+    ports:
+      - "8080:8080"
+    volumes:
+      # Dynamically mount host home directory
+      - ${HOME}:${HOME}
+      # Docker socket for restarting services
+      - /var/run/docker.sock:/var/run/docker.sock
+      # AWS credentials (read-only)
+      - ~/.aws:/root/.aws:ro
+      # Docker credentials (read-write)
+      - ~/.docker:/root/.docker:rw
+      # Mount env file inside container
+      - ./.updater.env:/app/.updater.env
+    # Load environment variables
+    env_file:
+      - .updater.env
+    restart: unless-stopped

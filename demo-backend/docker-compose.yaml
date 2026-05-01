@@ -1,0 +1,7 @@
+services:
+  backend_web_nginx_demo:
+    image: <AWS_Account_ID>.dkr.ecr.us-east-2.amazonaws.com/test-custom-new:qa-v1.0.0
+    container_name: backend_web_nginx_demo_container
+    ports:
+      - 8007:80
+    restart: unless-stopped

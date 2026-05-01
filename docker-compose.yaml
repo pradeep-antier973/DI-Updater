@@ -1,0 +1,15 @@
+name: custom-web-services
+services:
+  web_nginx:
+    image: <AWS_Account_ID>.dkr.ecr.us-east-2.amazonaws.com/test-custom:v1
+    container_name: web_nginx_container
+    ports:
+      - "8003:80"
+    restart: unless-stopped
+
+  web2_nginx:
+    image: <AWS_Account_ID>.dkr.ecr.us-east-2.amazonaws.com/test-custom:v1
+    container_name: web2_nginx_container
+    ports:
+      - "8002:80"
+    restart: unless-stopped
